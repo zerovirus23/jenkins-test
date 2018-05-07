@@ -49,4 +49,14 @@ public class PortalApplicationTests {
 	
 	@Test
 	public void test9() {}
+	
+	@Test
+	public void test10() {}
+	@Test
+	public void test11() {}
+	@Test
+	public void test12() {}
+	@Test
+	public void test13() {}
+	
 }
