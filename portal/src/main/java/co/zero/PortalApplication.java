@@ -4,24 +4,25 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
-public class ServiceAApplication extends SpringBootServletInitializer {
+@Controller
+public class PortalApplication extends SpringBootServletInitializer {
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(ServiceAApplication.class);
+		return application.sources(PortalApplication.class);
 	}
 	
 	public static void main(String[] args) {
-		SpringApplication.run(ServiceAApplication.class, args);
+		SpringApplication.run(PortalApplication.class, args);
 	}
 	
-	
-	@GetMapping("/helloA")
-	public String helloWorld() {
-		return "Hello from ServiceA";
+	@GetMapping("/helloMvc")
+	public String hello(Model model) {
+		model.addAttribute("greeting","Hello from MVC");
+		return "index";
 	}
 }
