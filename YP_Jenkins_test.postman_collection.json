@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "5d30955e-9436-41ee-bcb8-ae7ab7c01148",
+		"name": "YP_Jenkins_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "serviceA - OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "34e52d83-6138-46cf-b363-31b4432cfb5f",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"Hello from ServiceA\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/serviceA/helloA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"serviceA",
+						"helloA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "serviceB - OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b0c559b9-1464-4f83-af55-e59ab6aaa924",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Hello from ServiceB\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/serviceB/helloB",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"serviceB",
+						"helloB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "portal - OK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "83d4ae20-d4cf-4d68-ae33-a8262700ac89",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Hello from MVC\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/portal-test/helloMvc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"portal-test",
+						"helloMvc"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
